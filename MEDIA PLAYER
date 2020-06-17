@@ -1,0 +1,65 @@
+MAIN ACTIVITY FILE
+
+class MainActivity : AppCompatActivity() {
+
+    lateinit var mediaPlayer : MediaPlayer
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.sample_music)
+
+        playButton.setOnClickListener{
+            mediaPlayer.start() // will start playing the song
+        }
+        pauseButton.setOnClickListener{
+            mediaPlayer.pause() // will pause the current playing song
+        }
+
+        stopButton.setOnClickListener {
+            mediaPlayer.stop()  // will stop playing music
+        }
+
+    }
+}
+
+
+LAYOUT FILE
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bmpl.android.mediafiles.MainActivity"
+    android:gravity="center">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        android:id="@+id/playButton"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pause"
+        android:id="@+id/pauseButton"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop"
+        android:id="@+id/stopButton"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColor="@android:color/black"
+        android:id="@+id/textView"/>
+
+</LinearLayout>
+
+
